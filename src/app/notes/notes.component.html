@@ -1,0 +1,66 @@
+<div class="wrapper">
+  <div class="noteApp">
+    <div class="appHeader">
+      <div class="appHead">
+        <button class="addNote">
+          <img src="assets/images/plus-icon.png">
+        </button>
+        <button class="closeNote" (click)="getAllNotes()">
+          <img src="assets/images/cross-icon.png">
+        </button>
+      </div>
+      <div class="head-row">
+        <h1>Notes App</h1>
+      </div>
+
+      <div class="noteSearch">
+        <div class="form-group">
+          <input (input)="onSearch($event)" type="text" name="searchNote" [(ngModel)]="searchNote" class="form-control" placeholder="Search note...">
+          <button>
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="addNote-field" id="addNote-field">
+      <form (ngSubmit) = "onClickSubmit()" >
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Add Title" name="title" [(ngModel)]="title">
+          <textarea  class="form-control note-desc" rows="6" name="description" placeholder="Add description" [(ngModel)]="description"></textarea>
+          <button type = "submit">
+            Save Note
+          </button>
+        </div>
+      </form>
+    </div>
+
+      <div class="notesWrap" *ngIf="allNotes && allNotes.length > 0">
+      <div class="savedNote" *ngFor="let note of allNotes; index as i">
+        <div class="savedNote-head">
+          <h2>{{note.title}}</h2>
+          <button class="note-actions-{{i}}" (click)="onEditClick(i)">
+            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+          </button>
+          <div class="note-dropdown" id="actionsDropdown-{{i}}">
+            <ul>
+              <li>
+                <button (click)="editNote(note,i)">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  Edit Note
+                </button>
+              </li>
+              <li>
+                <button (click)="deleteNote(note,i)">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  Delete Note
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p>{{note.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

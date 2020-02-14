@@ -1,0 +1,302 @@
+html {
+    scroll-behavior: smooth;
+}
+*,
+body {
+    padding:  0;
+    margin:  0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+button {
+    background-color: transparent;
+    border:  none;
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+a, a:hover {
+    text-decoration: none;
+}
+ul,ol {
+    margin: 0;
+    padding:  0;
+    list-style-type: none;
+}
+
+
+/*--- App CSS Start ---*/
+.noteApp {
+    padding: 10px 20px;
+    /* border:  1px solid rgba(0, 0, 0, 0.7); */
+    position: relative;
+    box-sizing: border-box;
+    height: 700px;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.16);
+}
+
+
+/*--- ScrollBAr CSS Start ---*/
+.noteApp::-webkit-scrollbar {
+  width: 5px;
+  background-color: #eee;
+}
+.noteApp::-webkit-scrollbar-track {
+  box-shadow: none; 
+  border-radius: 3px;
+}
+.noteApp::-webkit-scrollbar-thumb {
+  background: #46b8da; 
+  border-radius: 3px;
+}
+
+.noteApp::-webkit-scrollbar-thumb:hover {
+  background: #46b8da; 
+}
+
+/*--- AppHeader CSS Start ---*/
+.appHeader {
+    height: 116px;
+    margin-bottom: 7px;
+    /* position: absolute;
+    left: 20px;
+    top: 10px;
+    background-color: #fff;
+    width: calc(100% - 40px);
+    z-index: 100;
+    padding:  10px 0; */
+}
+.appHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.closeNote,
+.addNote {
+    display: flex;
+    align-items: center;
+}
+.addNote img {
+    width: 17px;
+    height: 17px;
+}
+.closeNote img {
+    width: 15px;
+    height: 15px;
+}
+.addNote {
+    font-size: 16px;
+    color: #333;
+}
+.noteApp .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+.closeNote i,
+.addNote i {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7)
+}
+.addNote {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0px;
+}
+.addNote i {
+    margin-left: 5px;
+}
+.head-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    position: relative
+}
+.noteApp h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: #333;
+}
+
+.head-row .manage-notes {
+    font-size: 26px;
+    color: #777;
+    line-height: 0.9;
+}
+.note-dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% - 5px);
+    background-color: #fff;
+    border-radius: 3px;
+    display: none;
+    width: 140px;
+     -webkit-box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.16);
+}
+.note-dropdown li,
+.note-dropdown a {
+    font-size: 14px;
+    color: #777;
+    cursor: pointer;
+    font-weight: 600;
+}
+.note-dropdown li:hover,
+.note-dropdown a:hover {
+    color: #46b8da;
+}
+.note-dropdown li {
+    padding:  5px 7px;
+    border-bottom:  1px solid rgba(0, 0, 0, 0.2);
+}
+.note-dropdown li:last-child {
+    border-bottom: none;
+}
+.note-dropdown i {
+    margin-right: 5px;
+}
+
+.noteSearch {
+    margin-bottom: 15px;
+}
+.noteSearch .form-group {
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    border-radius: 3px;
+    margin-bottom: 0;
+}
+.noteApp .form-control {
+    padding:  0 10px;
+    border:  none;
+    height: auto;
+    font-size: 14px;
+    color: #333;
+    height: 35px;
+    background-color: #eee;
+    padding-right: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.noteSearch .form-control {
+    width:  calc(100% - 40px);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    font-weight: 600;
+    line-height: 35px;
+}
+.noteSearch button {
+    height: 35px;
+    width: 40px;
+    background-color: #46b8da;
+    border:  none;
+    color: #FFF;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.noteSearch button i {
+    color: #FFF;
+    line-height: 35px;
+}
+
+/*--- NoteField CSS Start ---*/
+.addNote-field {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 135px;
+    width: calc(100% - 40px);
+}
+.addNote-field .form-control {
+    border-radius: 3px;
+}
+.addNote-field .form-control:first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 16px;
+    font-weight: 600;
+    height: 40px;
+    border-bottom: 1px solid #46b8da;
+}
+.addNote-field .note-desc {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: auto;
+    padding: 10px;
+    padding-top: 15px;
+    resize: none;
+}
+.addNote-field .note-desc::-webkit-scrollbar {
+  display: none;
+}
+
+.addNote-field .form-group {
+    margin-bottom: 0;
+}
+.addNote-field .note-desc {
+  -ms-overflow-style: none;
+}
+.addNote-field button {
+    width: 100%;
+    border:  none;
+    border-radius: 3px;
+    background-color: #46b8da;
+    padding: 7px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+/*--- SavedNotes CSS Start ---*/
+.savedNote {
+    border-radius: 3px;
+    background-color: rgba(70, 184, 218, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.savedNote-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    position: relative;
+}
+.savedNote-head .note-actions {
+    font-size: 18px;
+    line-height: 1;
+    color: #333;
+}
+.savedNote h2 {
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #333;
+}
+.savedNote p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.3;
+}
+/*--- App CSS End ---*/
